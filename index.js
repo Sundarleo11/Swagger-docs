@@ -38,7 +38,10 @@ app.get("/api/v1/lco", (req, res) => {
 
 app.get("/api/v1/lcoObject", (req, res) => {
     res.status(200).send({ id: 55, name: "Java", price: 999 });
+});
 
+app.get("/api/v1/course", (req, res) => {
+    res.status(200).send(course);
 });
 
 

@@ -80,4 +80,30 @@ paths:
         500:      
          description: internal server error   
 
+  /course:
+    get:
+     tags:  
+      - Array
+     summary: return all courses
+     responses: 
+        200:
+         description: All good success
+         content:
+             application/json:
+                schema:
+                  type: array
+                  items:
+                   type: object
+                   properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    price:
+                      type: string
+
+        400:
+         description: Bad request
+        500:      
+         description: internal server error
      
