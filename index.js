@@ -12,16 +12,16 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 let course = [
 
     {
-        id: 11,
+        id: "11",
         name: "Learn React",
         price: 299
     }, {
-        id: 22,
+        id: "22",
         name: "Learn Java",
         price: 399
     }, {
-        id: 33,
-        name: "Learn Node js",
+        id: "33",
+        name: "LearnNodejs",
         price: 499
     },
 ]
@@ -44,6 +44,17 @@ app.get("/api/v1/course", (req, res) => {
     res.status(200).send(course);
 });
 
+app.get("/api/v1/mycourse/:id", (req, res) => {
+    //id params
+    const mycourse = course.find((c) => c.id === req.params.id);
+    /*const coursename = course.find((cn) =>
+        cn.name === req.params.name
+    );*/
+
+    // console.log(coursename);
+    res.status(200).send(mycourse);
+    //res.status(200).send(coursename);
+});
 
 app.listen(port, () => {
     console.log(`Server is up and runing on port ${port}`);

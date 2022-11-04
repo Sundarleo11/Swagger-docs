@@ -37,10 +37,10 @@ components:
 
 
 paths:
-  /lco:
+  /Root:
     get:
      tags:
-      - string
+      - String
      summary: return a greet message from lco
      responses: 
       200:
@@ -55,7 +55,7 @@ paths:
         description: Bad request
       500:      
         description: internal server error
-  /lcoObject:
+  /Object:
     get:
      tags:  
       - Object
@@ -79,8 +79,7 @@ paths:
          description: Bad request
         500:      
          description: internal server error   
-
-  /course:
+  /Course:
     get:
      tags:  
       - Array
@@ -106,4 +105,36 @@ paths:
          description: Bad request
         500:      
          description: internal server error
-     
+  /Mycourse/{CourseId}:
+    get:
+     tags:  
+      - String
+     summary: return course based on request id
+     parameters:
+       - name : courseId
+         in : path
+         required : true
+         default : 11
+         schema:
+          type : string
+     responses: 
+        200:
+         description: All good success
+         content:
+             application/json:
+                schema:
+                   type: object
+                   items:
+                   type: object
+                   properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    price:
+                      type: string
+
+        400:
+         description: Bad request
+        500:      
+         description: internal server error   
