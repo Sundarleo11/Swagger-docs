@@ -56,6 +56,13 @@ app.get("/api/v1/mycourse/:id", (req, res) => {
     //res.status(200).send(coursename);
 });
 
+app.post("/api/v1/addcourse", (req, res) => {
+    console.log(req.body);
+    course.push(req.body);
+    res.send(true);
+});
+
+
 app.listen(port, () => {
     console.log(`Server is up and runing on port ${port}`);
 })
