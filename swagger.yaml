@@ -99,7 +99,7 @@ paths:
                     name:
                       type: string
                     price:
-                      type: string
+                      type: number
 
         400:
          description: Bad request
@@ -147,12 +147,9 @@ paths:
       - application/json
      produces:
       - application/json 
-     requestBody : 
-      required : true
-     responses: 
-        200:
-         description: All good success
-         content:
+     requestBody: 
+      required: true
+      content:
              application/json:
                 schema:
                    type: object
@@ -164,7 +161,17 @@ paths:
                     name:
                       type: string
                     price:
-                      type: string
+                      type: number
+                   
+     responses: 
+        200:
+         description: All good success
+         content:
+             application/json:
+                schema:
+                   type: boolean
+                  
+                   
 
         400:
          description: Bad request
