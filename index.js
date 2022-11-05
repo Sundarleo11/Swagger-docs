@@ -63,6 +63,19 @@ app.post("/api/v1/addcourse", (req, res) => {
     res.send(true);
 });
 
+app.get("/api/v1/coursequery", (req, res) => {
+
+    const Location = req.query.Location;
+    const device = req.query.device;
+
+    res.send({ Location, device });
+
+
+    //console.log(req.body);
+    // course.push(req.body);
+    //res.send(true);
+});
+
 
 app.listen(port, () => {
     console.log(`Server is up and runing on port ${port}`);
